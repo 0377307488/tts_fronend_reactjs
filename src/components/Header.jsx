@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 function Header() {
   return (
     <div className="my-5">
@@ -64,12 +64,18 @@ function Header() {
             </ul>
 
             {/* Nút Liên Hệ */}
-            <a
-              href="/"
+            <Link
+              to="/history"
+              className="btn btn-light text-dark fw-semibold rounded-pill shadow-sm me-1"
+            >
+              Lịch sử xem
+            </Link>
+            <Link
+              to="/favorites"
               className="btn btn-light text-dark fw-semibold rounded-pill shadow-sm"
             >
-              Liên Hệ
-            </a>
+              Yêu thích
+            </Link>
           </div>
         </div>
       </nav>

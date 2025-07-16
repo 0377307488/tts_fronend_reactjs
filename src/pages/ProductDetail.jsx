@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 import Products from "../data/Products";
 
 function ProductDetail() {
   const { id } = useParams();
   const product = Products.find((p) => p.id === Number(id));
+
+  useEffect(() => {
+    const viewed = JSON.parse(localStorage.getItem("viewedProducts") || "[]");
+    if (!viewed.includes(product.id)) {
+      viewed.push(product.id);
+      localStorage.setItem("viewedProducts", JSON.stringify(viewed));
+    }
+  }, [product]);
 
   if (!product) {
     return (
